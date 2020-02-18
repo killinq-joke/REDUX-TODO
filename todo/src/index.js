@@ -1,19 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
-import { todosReducer, formReducer} from "./state/reducers"
+import { todosReducer, formReducer } from "./state/reducers";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 const combinedReducer = combineReducers({
-    todos: todosReducer,
-    formValues: formReducer,
-  })
+  todos: todosReducer,
+  formValues: formReducer
+});
 
-const store = createStore(combinedReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-    
+const store = createStore(
+  combinedReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <Provider store={store}>

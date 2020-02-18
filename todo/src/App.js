@@ -1,46 +1,34 @@
 import React from "react";
 import { connect } from "react-redux";
-import {
-  inputChange,
-  addTodo,
-  clearCompleted
-} from "./state/actionCreator";
-import TodoList from './Components/TodoList';
+import { inputChange, addTodo, clearCompleted } from "./state/actionCreator";
+import TodoList from "./Components/TodoList";
 import "./App.css";
 
-function App({
-  formValues,
-  inputChange,
-  addTodo,
-  clearCompleted
-}) {
+function App({ formValues, inputChange, addTodo, clearCompleted }) {
   const onChange = e => {
-    inputChange(e)
-  }
+    inputChange(e);
+  };
   const onAddTodo = e => {
-    addTodo(formValues)
-  }
+    addTodo(formValues);
+  };
   const onClearCompleted = e => {
-    clearCompleted()
-  }
+    clearCompleted();
+  };
 
   return (
     <div className="App">
       <form>
         <input onChange={e => onChange(e)} value={formValues}></input>
-        <button type="button" onClick={onAddTodo}>ADD</button>
-        <button type="button" onClick={onClearCompleted}>CLEAR</button>
+        <button type="button" onClick={onAddTodo}>
+          ADD
+        </button>
+        <button type="button" onClick={onClearCompleted}>
+          CLEAR
+        </button>
       </form>
       <TodoList />
-      {/* {todos.map(todo => {
-        const color = todo.completed ? "green" : "red";
-        return(
-          <button key={todo.id} style={{color}} onClick={onMarkCompleted(todo.id)}>{todo.task}</button>
-        )
-      })} */}
     </div>
-  )
-  
+  );
 }
 
 function mapStateToProps(state) {
