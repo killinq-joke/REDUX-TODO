@@ -17,11 +17,20 @@ export function todosReducer(state = initialStateTodos, action) {
     switch(action.type) {
         case types.ADD_TODO:
             const newTodo = action.payload;
+            if(newTodo.task === '') {
+                return state
+            }
             return state.concat(newTodo);
         case types.MARK_COMPLETED:
-            return state;
+            const id = action.payload;
+            return state.map(todo => {
+                if(todo.id === id) {
+                    todo.completed = !todo.completed;
+                }
+                return todo;
+            });
         case types.CLEAR_COMPLETED:
-            return state.filter(state => state.completed === false);
+            return state.filter(todo => todo.completed === false);
         default:
             return state;
     }
