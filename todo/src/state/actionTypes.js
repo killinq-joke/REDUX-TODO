@@ -1,0 +1,4 @@
+export const INPUT_CHANGE = "INPUT_CHANGE";
+export const ADD_TODO = "ADD_TODO";
+export const MARK_COMPLETED = "MARK_COMPLETED";
+export const CLEAR_COMPLETED = "CLEAR_COMPLETED";
